@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 // show toast
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../../Shaired/PageTitle/PageTitle';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -65,6 +66,7 @@ const resetPassword= async()=>{
 
     return (
         <div className='container w-50 max-auto'>
+          <PageTitle title='Login'></PageTitle>
             <h3 className='text-center text-primary'>Please Login.</h3>
             <Form onSubmit={handleSubmitForm}>
       <Form.Group className="mb-3" controlId="formBasicEmail">

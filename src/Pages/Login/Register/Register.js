@@ -5,6 +5,7 @@ import './Register.css';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shaired/Loading/Loading';
+import PageTitle from '../../Shaired/PageTitle/PageTitle';
 
 
 const Register = () => {
@@ -51,6 +52,7 @@ navigate('/home');
 
     return (
         <div className='register-form'>
+            <PageTitle title='Register'></PageTitle>
             <h2 style={{textAlign:'center'}}>Please Register</h2>
            <form onSubmit={handleRegisterForm}>
            <input type="text" name="name" id="" placeholder='Your name' />
