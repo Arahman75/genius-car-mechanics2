@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import CheckOut from './CheckOut/CheckOut';
 import About from './Pages/About/About';
+import AddService from './Pages/AddService/AddService';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
@@ -25,6 +26,9 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/checkout' element={<RequireAuth>
           <CheckOut></CheckOut>
+        </RequireAuth>}></Route>
+        <Route path='/addservice' element={<RequireAuth>
+        <AddService></AddService>
         </RequireAuth>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>

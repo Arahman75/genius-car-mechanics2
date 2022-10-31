@@ -19,7 +19,8 @@ if(loading){
     if(!user){
         return <Navigate to='/login' state={{from: location}} replace></Navigate>
     }
-    if(!user.emailVerified){
+   // first user teke and sign porjonto google verified na korar jonno kora hoiche
+    if(user.providerData[0]?.providerId ==='password' && !user.emailVerified){
         return <div>
             <h3 className='text-danger'>Your Email is not Verified!!</h3>
             <p className='text-success'>Please Verify Your Email Address</p>
