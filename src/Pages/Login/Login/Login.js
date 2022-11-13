@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import PageTitle from '../../Shaired/PageTitle/PageTitle';
 import axios from 'axios';
+import useToken from '../../../Hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -26,15 +27,18 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+const [token] = useToken(user);
 
     const handleSubmitForm =async(event)=>{
 event.preventDefault();
 const email = emailRef.current.value;
 const password = passwordRef.current.value;
 await signInWithEmailAndPassword(email, password);
-const {data} = await axios.post('https://nameless-shore-65260.herokuapp.com/login',{email});
-localStorage.setItem('accessToken', data.accessToken);
-navigate(from, {replace: true});
+
+// useToken use korar purber code
+// const {data} = await axios.post('https://nameless-shore-65260.herokuapp.com/login',{email});
+// localStorage.setItem('accessToken', data.accessToken);
+// navigate(from, {replace: true});
     }
 
     const navigateRegister = event =>{
@@ -52,8 +56,8 @@ const resetPassword= async()=>{
   }
 }
 
-    if(user){
-      // navigate(from, {replace: true});
+    if(token){
+       navigate(from, {replace: true});
     }
     let errorElement;
 

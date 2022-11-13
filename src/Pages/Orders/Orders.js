@@ -13,7 +13,7 @@ const Orders = () => {
 const navigate = useNavigate();
     useEffect(()=>{
         const getOrders= async()=>{
-            const email= user.email;
+            const email= user?.email;
             const url=`https://nameless-shore-65260.herokuapp.com/order?email=${email}`;
           try{
             // const {data} = await axios.get(url,{
